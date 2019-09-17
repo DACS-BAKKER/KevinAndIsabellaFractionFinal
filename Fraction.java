@@ -1,74 +1,92 @@
+/* KEVIN AND ISABELLA'S FRACTION.JAVA */
 public class Fraction {
+    /* VARIABLE */
     private int numerator;
     private int denominator;
 
+    /* TAKE IN NUMERATOR */
+    public Fraction(int numerator) {
+        this.numerator = numerator;
+        this.denominator = 1;
+    }
+
+    /* TAKE IN NUMERATOR AND DENOMINATOR */
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
+    /* TAKE IN STRING */
     public Fraction(String fraction) {
-        int i = 0;
-        while (fraction.charAt(i) != '/')
-            i++;
-        numerator = Integer.valueOf(fraction.substring(0, i));
-        denominator = Integer.valueOf(fraction.substring(i + 1));
+        int i = fraction.indexOf("/");
+        if (i != -1) {
+            this.numerator = Integer.valueOf(fraction.substring(0, i));
+            this.denominator = Integer.valueOf(fraction.substring(i + 1));
+        } else {
+            this.numerator = Integer.valueOf(fraction);
+            this.denominator = 1;
+        }
     }
 
-    public Fraction FractionAdd(Fraction fraction) {
-        int n = numerator * fraction.denominator + denominator * fraction.numerator;
-        int d = denominator * fraction.denominator;
-        int gcd = gcd(Math.min(n, d), Math.max(n, d));
-        return new Fraction(n/gcd, d/gcd);
-    }
-
-    public Fraction FractionSubtract(Fraction fraction) {
-        int n = numerator * fraction.denominator - denominator * fraction.numerator;
-        int d = denominator * fraction.denominator;
-        int gcd = gcd(Math.min(n, d), Math.max(n, d));
-        return new Fraction(n/gcd, d/gcd);
-    }
-
-    public Fraction FractionMultiply(Fraction fraction) {
-        int n = numerator * fraction.numerator;
-        int d = denominator * fraction.denominator;
-        int gcd = gcd(Math.min(n, d), Math.max(n, d));
+    /* ADD FRACTION */
+    public Fraction add(Fraction fraction) {
+        int n = this.numerator * fraction.denominator + this.denominator * fraction.numerator;
+        int d = this.denominator * fraction.denominator;
+        int gcd = gcd(n, d);
         return new Fraction(n / gcd, d / gcd);
     }
 
-    public Fraction FractionDivide(Fraction fraction) {
-        int n = numerator * fraction.denominator;
-        int d = denominator * fraction.numerator;
-        int gcd = gcd(Math.min(n, d), Math.max(n, d));
+    /* SUBTRACT FRACTION */
+    public Fraction subtract(Fraction fraction) {
+        int n = this.numerator * fraction.denominator - this.denominator * fraction.numerator;
+        int d = this.denominator * fraction.denominator;
+        int gcd = gcd(n, d);
         return new Fraction(n / gcd, d / gcd);
     }
 
-    // sigfigs
+    /* MULTIPLY FRACTION */
+    public Fraction multiply(Fraction fraction) {
+        int n = this.numerator * fraction.numerator;
+        int d = this.denominator * fraction.denominator;
+        int gcd = gcd(n, d);
+        return new Fraction(n / gcd, d / gcd);
+    }
+
+    /* DIVIDE FRACTION */
+    public Fraction divide(Fraction fraction) {
+        int n = this.numerator * fraction.denominator;
+        int d = this.denominator * fraction.numerator;
+        int gcd = gcd(n,d);
+        return new Fraction(n / gcd, d / gcd);
+    }
+
+    /* TO DECIMAL */
     public double toDecimal() {
-        return (double) (numerator) / denominator;
+        return (double) numerator / this.denominator;
     }
 
+    /* COMPARE WITH FRACTION */
     public int compareTo(Fraction fraction) {
-        int n = numerator * fraction.denominator;
-        int d = fraction.numerator * denominator;
+        int n = this.numerator * fraction.denominator;
+        int d = fraction.numerator * this.denominator;
         if (d > n)
             return 1;
         if (d < n)
             return -1;
-        else
-            return 0;
+        return 0;
     }
 
+    /* GCD */
     public int gcd(int x, int y) {
-        int a = y / x;
-        int b = y % x;
-        if (b == 0)
-            return x;
-        else
-            return gcd(b, x);
+        if (x % y == 0)
+            return Math.abs(y);
+        return gcd(y, x % y);
     }
 
+    /* CONVERT TO STRING */
     public String toString() {
-        return numerator + " / " + denominator;
+        if (denominator != 1)
+            return this.numerator + "/" + this.denominator;
+        return String.valueOf(numerator);
     }
 }
