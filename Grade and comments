@@ -1,0 +1,34 @@
+Comments:
+
+Code:
+- You only need this if there is an ambiguity.
+- You should pay attention to the findBugs messages.
+- Why not simplify the fraction in the fraction constructor.  This would eliminate all the calls to gcd().
+- It seems to me that the only objects you have in your calculator are complex numbers, no fractions.  The only time I see a fraction is to
+make a complex number?  Why?  I see that your complex numbers are made of two fractions.  I can see how you handled all the fraction operations
+by method calls inside the complex number class.  
+- Your class structure and mathematical operations all seem fine and well coded.
+
+GUI - 
+I have no idea how to use this.  I will tell you what I tried.
+
+1/2=  and I get 1/2 . ----so far good, then +3/4= and I get 3/4, so I guess that is not what I should do.  so I tried...
+1/2+3/4= and I get 3/4 . ....hmmm?  I cannot get any operation to make math happen.
+
+Give the user a little help.
+
+I can get the x^2 to work on a fraction...
+
+After the operation it adds numbers on to the end of the result, so if I type 5/6 x^2 and get 25/36 and then press the 6 button it adds the 
+6 to the end to get 25/366 where I just wanted to start a new calculation.
+
+I think you guys tried to add a bit of cool things, but I cannot do much with your calculator.  How am I supposed to use it.  A readme or instruction
+file would help
+
+Grade:  check / check plus
+You wrote good code.  In many respects you added nice extras.  I think you should comment your methods.
+I wish you made your GUI easier to figure out.
+
+
+
+
