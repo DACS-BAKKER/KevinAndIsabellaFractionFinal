@@ -3,23 +3,32 @@ Kevin and Isabella’s Calculator
 Link: https://github.com/DACS-BAKKER/KevinAndIsabellaFractionFinal
 
 Quick Instructions/Examples:
+
+General fraction operations:
 To add fractions: 1 ÷ 2 + 3 ÷ 4 = 5/4
 To subtract fractions: 1 ÷ 2 - 3  ÷ 4= -1/4
 To multiply fractions: 1 ÷ 2 * 3 / 4= 3/8
 To divide fractions: 1 ÷ 2 ÷ 3 ÷ 4= 1/24
 
+Using previously obtained value:
+1 ÷ 2 = 1/2. + 3 ÷ 4 = 5/4
+
 Use CPX for Complex Numbers
 Formatted as follows: [a] [cpx] [b] is equivalent to a + bi.
-What you would type: 2 [cpx] 4 ÷ 5 = 2/5 + 4/5i
-What it is equivalent to: 2 + 4i ÷ 5 = 2/5 + 4/5i
+What you would type: 2 [cpx] 4 = 2 + 4i
+Example of operation: 2 + 4i ÷ 5 = 2/5 + 4/5i
 
 PEMDAS:
 1 + 2 * 3 ÷ 4= 5/2
 
-*Squared:
+*Square:
 2 ^ 2 + 9 = 13
 
 *Resets text after inputting square and another number. For instance, 3 ^ 2 and then entering 4 would reset it to 4.
+
+Negative/Positive:
+Inputting a +/- will flip the sign
+9 [+/-] = -9
 
 Cool Features:
 - Complex numbers in the calculator (based off of fraction)
@@ -35,9 +44,13 @@ The following inputs will yield an error printed out in the console.
 - If it divides by 0, it is undefined.
 - Too many characters in the text box to show.
 
-Note:
+Notes:
 I wanted to model my GUI as user friendly as possible. I found that PEMDAS was very important to correctly obtaining the values and functions the user wanted. To this end, I stored the current operation and previous operation to perform order of operations.
 
 Regarding my use of complex numbers, I made it so that the a and b in a + bi is used as a fraction. The simpler implementation would be integers, such as 5 + 6i, but I modified it so that inputs such as 5/2 + 6/4i could be implemented.
 
-Have fun!
+I opted to not use a fraction button because I thought it would make more sense for the user. It was a challenging implementation as it required PEMDAS.
+
+Anyhow, have fun!
+
+-----
