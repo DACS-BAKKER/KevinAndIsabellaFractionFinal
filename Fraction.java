@@ -12,8 +12,8 @@ public class Fraction {
 
     /* TAKE IN NUMERATOR AND DENOMINATOR */
     public Fraction(int numerator, int denominator) {
-        this.numerator = numerator / gcd(numerator, denominator);
-        this.denominator = denominator / gcd(numerator, denominator);
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
 
     /* TAKE IN STRING */
